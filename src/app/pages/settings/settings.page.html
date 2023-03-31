@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="main_flex">
+      <ion-label>Notification</ion-label>
+      <ion-toggle mode="md" node="md"></ion-toggle>
+    </div>
+
+    <div class="sub_flex">
+      <ion-label>News Language</ion-label>
+      <div class="last_div">
+        <ion-label class="orange_round">E</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="main_flex">
+      <ion-label>App Language</ion-label>
+      <div class="last_div">
+        <ion-label class="orange">English</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="sub_flex2">
+      <div style="display: flex;justify-content: space-between;">
+        <ion-label>Autoplay</ion-label>
+        <ion-toggle mode="md"></ion-toggle>
+      </div>
+      <div>
+        <ion-segment value="Data Only">
+          <ion-segment-button value="Data Only">
+            <ion-label>Data Only</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="Wifi Only">
+            <ion-label>Wifi Only</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="Both">
+            <ion-label>Both</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    </div>
+
+    <div class="sub_flex">
+      <ion-label>Night Mode</ion-label>
+      <ion-toggle mode="md"></ion-toggle>
+    </div>
+
+    <div class="main_flex">
+      <ion-label>Card Layout</ion-label>
+      <div class="card_flex">
+        <div class="inner_card1" (click)="changeLayout(1)">
+          <img *ngIf="layout != 1" src="assets/imgs/layout.png" alt="">
+          <img *ngIf="layout == 1" src="assets/imgs/layout_active.png" alt="">
+        </div>
+        <div class="inner_card2"  (click)="changeLayout(2)">
+          <img *ngIf="layout != 2" src="assets/imgs/layout2.png" alt="">
+          <img *ngIf="layout == 2" src="assets/imgs/layout2_active.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="sub_flex">
+      <ion-label>Client ID</ion-label>
+      <ion-label class="client_lbl">34621095</ion-label>
+    </div>
+
+    <div class="sub_flex">
+      <ion-label>App Version</ion-label>
+      <ion-label>0.0.1</ion-label>
+    </div>
+
+    
+
+    <div class="main_flex">
+      <ion-label>Check for update</ion-label>
+      <ion-icon name="checkmark-sharp"></ion-icon>
+    </div>
+
+    <div class="main_flex">
+      <ion-label>Blocked</ion-label>
+      <div class="last_div">
+        <ion-label class="orange">0</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="sub_flex">
+      <ion-label>Advertising</ion-label>
+      <ion-label>0.0.1</ion-label>
+    </div>
+
+    <div class="sub_flex">
+      <ion-label>Help</ion-label>
+      <ion-label>0.0.1</ion-label>
+    </div>
+
+    <div class="main_flex">
+      <ion-label>Feedback</ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </div>
+
+    <div class="main_flex">
+      <ion-label>Sign Out</ion-label>
+      <ion-icon name="power-outline"></ion-icon>
+    </div>
+
+  </div>
+</ion-content>

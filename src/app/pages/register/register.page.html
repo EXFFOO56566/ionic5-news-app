@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>register</ion-title>
+
+    <ion-button (click)="goToSettings()" size="small" fill="clear" slot="end">
+      <ion-icon name="settings-outline" color="dark"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="goToNotification()" size="small" fill="clear" slot="end">
+      <ion-icon name="notifications-outline" color="dark"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="first_div">
+      <ion-label class="bold_lbl">Get personalised News and Videos for you, anytime & anywhere</ion-label>
+
+      <div class="user_flex_div">
+        <div class="user_image" [style.background]="'url( '+ item+' )'" *ngFor="let item of users"></div>
+      </div>
+
+      <ion-label class="small_lbl">Have joined the NewsApp comminity this week</ion-label>
+
+      <ion-button expand="block" class="mobile" shape="round">
+        <div class="btn_div">
+          <ion-icon name="call"></ion-icon>
+          <ion-label>Sign in with Mobile Number</ion-label>
+        </div>
+      </ion-button>
+
+      <ion-button expand="block" class="fb" shape="round">
+        <div class="btn_div">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-label>Sign in with Facebook</ion-label>
+        </div>
+      </ion-button>
+
+      <ion-button expand="block" class="gp" shape="round">
+        <div class="btn_div">
+          <ion-icon name="logo-google"></ion-icon>
+          <ion-label>Sign in with Google</ion-label>
+        </div>
+      </ion-button>
+
+      <ion-label class="skip_lbl" (click)="goToProfile()"><span>SKIP</span></ion-label>
+    </div>
+
+
+
+    <div class="second_div">
+      <ion-label class="bottom_lbl">By continuing you accept the <span>Terms of Use and Privacy Policy</span>
+      </ion-label>
+    </div>
+
+
+
+  </div>
+</ion-content>

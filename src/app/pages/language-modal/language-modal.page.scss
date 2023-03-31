@@ -1,0 +1,51 @@
+.head_div{
+    padding: 16px;
+    border-bottom: 1px solid lightgray;
+
+    ion-label {
+        display: block;
+    }
+
+    .small_lbl{
+        font-size: 14px;
+    }
+    .head_lbl{
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 5px;
+    }
+}
+.main_content_div{
+    width: 100%;
+    .lang_div{
+        padding: 16px;
+        ion-col{
+            text-align: center;
+
+            .color_div{
+                border-radius: 25px;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.footer_div{
+    padding: 16px;
+    display: flex;
+    border-top: 1px solid lightgray;
+
+    ion-checkbox{
+        height: 25px;
+        width: 25px;
+    }
+    ion-label {
+        padding-left: 15px;
+        color: gray;
+    }
+
+    span{
+        color: skyblue;
+        border-bottom: 1px solid skyblue;
+    }
+}

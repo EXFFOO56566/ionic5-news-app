@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>News</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div *ngFor="let iten of [1,2,3]">
+      <video width="100%" height="210" controls>
+        <source src="assets/imgs/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="content_div">
+        <ion-label class="news_title">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry
+        </ion-label>
+
+        <div class="flex_div">
+          <div>
+            <ion-label class="small_lbl">147 views</ion-label>
+          </div>
+          <div>
+            <ion-icon name="ellipsis-vertical"></ion-icon>
+          </div>
+        </div>
+
+        <ion-grid fixed>
+          <ion-row>
+
+            <ion-col size="4">
+              <div class="col_div">
+                <img src="assets/imgs/comment.png">
+                <ion-label>24</ion-label>
+              </div>
+            </ion-col>
+
+            <ion-col size="4">
+              <div class="col_div">
+                <img src="assets/imgs/like.png">
+                <ion-label>24</ion-label>
+              </div>
+            </ion-col>
+
+            <ion-col size="4">
+              <div class="col_div">
+                <img src="assets/imgs/whatsapp.png">
+                <ion-label>30</ion-label>
+              </div>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+
+        <div class="flex_div">
+          <div>
+            <ion-label class="channel_lbl">India News</ion-label>
+            <ion-label class="small_lbl">113 Followers • 61 Videos</ion-label>
+          </div>
+          <div>
+            <ion-button fill="outline" size="small">
+              <ion-icon slot="start" name="add" color="primary"></ion-icon>
+              Follow
+            </ion-button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ion-content>

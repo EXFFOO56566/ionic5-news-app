@@ -1,0 +1,55 @@
+<ion-header>
+  <div class="div_header" [class.top_margin]="plt == 'ios'">
+    <div class="first_div">
+      <ion-buttons slot="start">
+        <ion-back-button mode="md"></ion-back-button>
+      </ion-buttons>
+      <ion-label>{{title}}</ion-label>
+      <ion-badge color="dark" mode="ios">7</ion-badge>
+    </div>
+    <div>
+      <ion-select value="Sources">
+        <ion-select-option value="Sources">Sources</ion-select-option>
+        <ion-select-option value="All">All</ion-select-option>
+      </ion-select>   
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    
+    <div class="news_list" *ngIf="title == 'Following' || title == 'Channels'">
+      <div class="flex_list" *ngFor="let item of papers ">    
+        <div class="first_div">
+          <div class="round_div">
+            <img src="{{item.img}}" alt="">
+          </div>
+          <ion-label>{{item.name}}</ion-label>
+        </div>
+        <div>
+          <ion-button size="small">
+            Following
+          </ion-button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="news_list" *ngIf="title == 'Trending in News'">
+      <div class="flex_list2" *ngFor="let item of papers ">    
+        <div class="first_div">
+          <div class="round_image bg_image" [style.backgroundImage]="'url( '+ item.img +' )'"></div>
+        </div>
+        <div class="second_div">
+          <ion-label>What is Lorem Ipsum</ion-label>
+          <ion-label class="small">2.5k Followers</ion-label>
+          <ion-button size="small" fill="outline">
+            <ion-icon slot="start" name="star-outline"></ion-icon>
+            Follow
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

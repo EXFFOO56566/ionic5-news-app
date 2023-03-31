@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Explore</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <ion-searchbar placeholder="Search Location" showCancelButton="never"></ion-searchbar>
+
+    <div *ngFor="let item of locations; let i = index" class="gray_div">
+      <div class="flex_list_div">
+        <app-text-avatar [text]="item.state" [color]="item.color"></app-text-avatar>
+        <ion-label class="state_name">{{item.state}}</ion-label>
+
+        <ion-button (click)="open(i)" fill="clear" size="small">
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="close()" *ngIf="val == i" fill="clear" size="small">
+          <ion-icon name="chevron-up-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="city_list" *ngIf="val == i">
+        <div class="city" *ngFor="let dis of item.districts">
+          <ion-label>{{dis}}</ion-label>
+          <ion-button size="small" fill="outline">
+            <ion-icon slot="start" name="star-outline"></ion-icon>
+            Follow
+          </ion-button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>

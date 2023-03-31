@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-buttons class="back_btn" slot="start">
+    <ion-back-button mode="md"></ion-back-button>
+  </ion-buttons>
+  <div class="div_header">
+    <div class="back_image bg_image" [style.backgroundImage]="'url(assets/imgs/news_back.jpg)'">
+      <div class="div_overlay">
+        <div class="round_div">
+          <div class="logo_image bg_image" [style.backgroundImage]="'url(assets/imgs/news_icn1.png)'"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex_div_header">
+      <div>
+        <ion-label class="head_lbl">India TV</ion-label>
+        <ion-label  class="small_lbl">520k followers 39k stories</ion-label>
+      </div>
+      <div>
+        <ion-button  size="small" fill="outline">
+          <ion-icon slot="start" name="star-outline"></ion-icon>
+          Follow
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="header_slider">
+    <div class="chips_div">
+      <div class="test" [class.active]="val == i" *ngFor="let item of chips; let i = index">
+        <ion-label class="chip" [class.active2]="val == i" (click)="selectChip(i)">{{item}}</ion-label>
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div *ngIf="val != 0">
+      <div class="card_div" *ngFor="let item of (news| slice : 0: 3 )">
+        <div class="flex_div">
+          <div style="display: flex;">
+            <img src="{{item.logo}}">
+            <ion-label>News India</ion-label>
+          </div>
+          <div>
+            <ion-button class="follow_btn"  fill="outline" size="small">
+              <ion-icon slot="start" name="add"></ion-icon>
+              Follow
+            </ion-button>
+          </div>
+        </div>
+        <ion-label class="news_title">Lorem Ipsum is simply dummy text of the printing</ion-label>
+        <div class="back_image bg_image" [style.backgroundImage]="'url( '+ item.img +' )'" (click)="goToSinglePost()"></div>
+        <div class="flex_div">
+          <div>
+            <ion-label class="time">2m</ion-label>
+          </div>
+          <div>
+            <ion-button class="wp_btn"  fill="clear">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </ion-button>
+            <ion-button class="menu_btn"  fill="clear">
+              <ion-icon name="ellipsis-vertical"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="val == 0">
+      <ion-list>
+        <ion-item *ngFor="let item of chips" class="ion-no-padding">
+          <ion-label>{{item}}</ion-label>
+          <ion-checkbox checked mode="md" slot="end"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

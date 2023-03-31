@@ -1,0 +1,102 @@
+.main_content_div{
+    width: 100%;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: space-between;
+
+    ion-label {
+        display: block;
+        text-align: center;
+    }
+
+    .bold_lbl{
+        color: #505050;
+        font-weight: 600;
+        font-size: 14px;
+        margin-top: 25px;
+    margin-bottom: 10px;
+    }
+
+    .small_lbl{
+        color: #505050;
+        font-size: 12px;
+        margin-bottom: 40px;
+    }
+
+    ion-button{
+        margin-bottom: 20px;
+    }
+
+    .user_flex_div{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .user_image{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+            border: 3px solid white;
+            margin-left: -15px;
+        }
+    }
+
+    .btn_div{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+        align-items: center;
+
+        ion-icon{
+            font-size: 25px;
+            margin-left: 20px;
+        }
+        ion-label {
+            padding-left: 20px;
+            font-size: 16px;
+        }
+    }
+
+    .mobile{
+        --background: var(--ion-color-primary);
+    }
+    .fb{
+        --background: #3b5998;
+    }
+    .gp{
+        --background: #DB483B;
+    }
+
+    .skip_lbl{
+        margin-top: 30px;
+        span{
+            color: gray;
+            font-weight: 600;
+            font-size: 18px;
+            border-bottom: 1px solid lightgray;
+        }
+    }
+
+    .second_div{
+        display: flex;
+        justify-content: center;
+
+        .bottom_lbl{
+            width: 70%;
+            color: gray;
+            font-size: 13px;
+            span{
+                color: var(--ion-color-primary);
+                border-bottom: 1px solid var(--ion-color-primary);
+            }
+        }
+    }
+}

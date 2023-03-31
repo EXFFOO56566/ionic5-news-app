@@ -1,0 +1,456 @@
+<ion-header>
+  <div class="header_div" [class.top_margin]="plt == 'ios'">
+    <img src="assets/imgs/bear.png" (click)="goToRegister()">
+    <ion-input type="text" placeholder="Search News, Videos & Memes">
+      <ion-icon slot="start" name="search-outline"></ion-icon>
+    </ion-input>
+    <ion-icon name="notifications-outline" class="bell" (click)="goToNotification()"></ion-icon>
+  </div>
+
+  <div class="header_slider">
+    <div class="chips_div">
+      <div class="test" [class.active]="val == i" *ngFor="let item of chips; let i = index">
+        <ion-label class="chip" [class.active2]="val == i" (click)="selectChip(i)">{{item}}</ion-label>
+      </div>
+    </div>
+    <div>
+      <ion-icon name="add-circle"></ion-icon>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <span *ngIf="val == 1 || val == 4">
+      <div class="slider_div">
+        <ion-label class="header_lbl">Trending Topics</ion-label>
+        <ion-label class="small_lbl">Click to know more</ion-label>
+
+        <div class="div_slides">
+          <ion-slides [options]="slideOpts">
+            <ion-slide *ngFor="let item of homeSlider">
+              <div class="slide_div" style="padding: 0px;">
+                <div class="place_div bg_image" [style.backgroundImage]="'url( '+ item.img+' )'">
+                  <div class="overlay_div">
+                    <ion-label class="abs_lbl_white">{{item.name | slice : 0:20}} ...</ion-label>
+                  </div>
+                </div>
+                <div>
+                  <ion-button  size="small" fill="outline" class="out_btn">
+                    <ion-icon slot="start" name="star-outline"></ion-icon>
+                    Follow
+                  </ion-button>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+
+      </div>
+    </span>
+
+    <span *ngIf="val == 2">
+      <div class="slider_div">
+        <ion-label class="header_lbl">Following</ion-label>
+        <ion-label class="abs_lbl">See All</ion-label>
+        <div class="div_slides">
+          <ion-slides [options]="slideOpts">
+            <ion-slide *ngFor="let item of papers" (click)="goToSinglePaper()">
+              <div class="slide_div">
+                <div class="round_div">
+                  <img src="{{item.img}}">
+                </div>
+                <ion-label class="paper_name">{{item.name}}</ion-label>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+    </span>
+
+    <span *ngIf="val == 6">
+      <div class="slider_div">
+        <ion-label class="header_lbl">Upcoming Matches</ion-label>
+        <ion-label class="abs_lbl">See All</ion-label>
+
+        <div class="div_slides">
+          <ion-slides>
+            <ion-slide *ngFor="let item of [1,2,3,4]">
+              <div class="my_slide_div">
+                <div class="team_div">
+                  <img src="assets/imgs/india.png">
+                  <ion-label class="team_name">IND</ion-label>
+                </div>
+                <div class="content">
+                  <ion-icon name="notifications"></ion-icon>
+                  <ion-label class="time_lbl">03:30 PM</ion-label>
+                  <ion-label class="day">Thursday, 04 June</ion-label>
+                </div>
+                <div class="team_div">
+                  <img src="assets/imgs/wii.png">
+                  <ion-label class="team_name">WIN</ion-label>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+
+      <div class="slider_div">
+        <ion-label class="header_lbl">Latest Video</ion-label>
+        <ion-label class="small_lbl">Watch Latest Videos</ion-label>
+        <ion-label class="abs_lbl">See All</ion-label>
+
+        <div class="div_slides">
+          <ion-slides [options]="slideOpts2">
+            <ion-slide *ngFor="let item of homeSlider">
+              <div class="slide_div" style="padding: 0px;">
+                <div class="video_div bg_image" [style.backgroundImage]="'url( '+ item.img+' )'">
+                  <div class="video_round">
+                    <ion-icon name="caret-forward"></ion-icon>
+                  </div>
+                </div>
+                <div class="bottom_div">
+                  <ion-label class="news_title2">{{item.name | slice : 0: 25}} ...</ion-label>
+
+                  <div class="share_div">
+                    <ion-label class="channel_name">India News</ion-label>
+                    <ion-label class="shares">3.7k Views 37 Shares</ion-label>
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                  </div>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+    </span>
+
+    <span *ngIf="val == 3">
+      <div class="flex_btn">
+        <ion-button (click)="chooseCountry(1)" [class.active_btn]="country == 1" expand="block" fill="clear" shape="round">
+          India
+        </ion-button>
+        <ion-button (click)="chooseCountry(2)" [class.active_btn]="country == 2" expand="block" fill="clear" shape="round">
+          World
+        </ion-button>
+      </div>
+
+      <div class="simple_grid">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="4">
+              <div class="simple_box">
+                <ion-label class="color_lbl2" style="color: var(--ion-color-main2);">5,700</ion-label>
+                <ion-label class="number">
+                  <ion-icon name="caret-up-outline"></ion-icon> 540
+                </ion-label>
+                <ion-label class="status">CONFIRMED</ion-label>
+              </div>
+            </ion-col>
+            <ion-col size="4">
+              <div class="simple_box">
+                <ion-label class="color_lbl2" style="color: #10a310;">473</ion-label>
+                <ion-label class="number">-</ion-label>
+                <ion-label class="status">RECOVERED</ion-label>
+              </div>
+            </ion-col>
+            <ion-col size="4">
+              <div class="simple_box">
+                <ion-label class="color_lbl2" style="color: var(--ion-color-danger);">166</ion-label>
+                <ion-label class="number">
+                  <ion-icon name="caret-up-outline"></ion-icon> 17
+                </ion-label>
+                <ion-label class="status">DEATHS</ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div class="slider_div">
+        <ion-label class="header_lbl">Top Stories</ion-label>
+        <div class="div_slides">
+          <ion-slides [options]="slideOpts">
+            <ion-slide *ngFor="let item of homeSlider">
+              <div class="slide_div" style="padding: 0px;">
+                <div class="place_div bg_image" [style.backgroundImage]="'url( '+ item.img+' )'">
+                  <div class="overlay_div">
+                    <ion-label class="abs_lbl_white">{{item.name | slice : 0:20}} ...</ion-label>
+                  </div>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+
+      <div class="slider_div" style="border-bottom: none;margin-bottom: 0px;padding-bottom: 0px;">
+        <ion-label class="header_lbl">Live Updates</ion-label>
+        <ion-label class="abs_lbl">See All</ion-label>
+      </div>
+
+      <div class="main_time_line">
+        <ul class="timeline">
+          <li>
+            <div class="timeline-thumb bg-color-blue timeline-icon"></div>
+            <div class="timeline-item">
+              <h5>Like Title</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+              <div class="timeline-stats">
+                <ion-icon name="star-half"></ion-icon> 2,450
+                <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-thumb bg-color-red timeline-icon"></div>
+            <div class="timeline-item">
+              <h5>Updated Profile Picture</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+              <div class="timeline-stats">
+                <ion-icon name="heart"></ion-icon> 2,450
+                <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-thumb bg-color-lightblue timeline-icon">
+              <!-- <ion-icon name="wine"></ion-icon> -->
+            </div>
+            <div class="timeline-item">
+              <h5>A Wine Glass</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+              <div class="timeline-stats">
+                <ion-icon name="heart"></ion-icon> 2,450
+                <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-thumb bg-color-blue timeline-icon"></div>
+            <div class="timeline-item">
+              <h5>Like Title</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+              <div class="timeline-stats">
+                <ion-icon name="star-half"></ion-icon> 2,450
+                <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-thumb bg-color-red timeline-icon"></div>
+            <div class="timeline-item">
+              <h5>Updated Profile Picture</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, error.....</p>
+              <div class="timeline-stats">
+                <ion-icon name="heart"></ion-icon> 2,450
+                <span class="pos-absolute-right"><i class="ion-ios-clock"></i> 2 mins ago</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </span>
+
+    <span *ngIf="val == 0 || val == 1 || val == 2 || val == 4">
+      <div class="card_div" *ngFor="let item of (news| slice : 0: 3 )">
+        <div class="flex_div">
+          <div style="display: flex;">
+            <img src="{{item.logo}}">
+            <ion-label>News India</ion-label>
+          </div>
+          <div>
+            <ion-button class="follow_btn"  fill="outline" size="small">
+              <ion-icon slot="start" name="add"></ion-icon>
+              Follow
+            </ion-button>
+          </div>
+        </div>
+        <ion-label class="news_title">Lorem Ipsum is simply dummy text of the printing</ion-label>
+        <div class="back_image bg_image" [style.backgroundImage]="'url( '+ item.img +' )'" (click)="goToSinglePost()">
+        </div>
+        <div class="flex_div">
+          <div>
+            <ion-label class="time">2m</ion-label>
+          </div>
+          <div>
+            <ion-button class="wp_btn"  fill="clear">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </ion-button>
+            <ion-button class="menu_btn"  fill="clear">
+              <ion-icon name="ellipsis-vertical"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </span>
+
+    <span *ngIf="val == 0">
+
+      <div class="slider_div">
+        <ion-label class="header_lbl">Trending Topics</ion-label>
+        <ion-label class="small_lbl">Click to know more</ion-label>
+
+        <div class="div_slides">
+          <ion-slides [options]="slideOpts">
+            <ion-slide *ngFor="let item of homeSlider">
+              <div class="slide_div" style="padding: 0px;">
+                <div class="place_div bg_image" [style.backgroundImage]="'url( '+ item.img+' )'">
+                  <div class="overlay_div">
+                    <ion-label class="abs_lbl_white">{{item.name | slice : 0:20}} ...</ion-label>
+                  </div>
+                </div>
+                <div>
+                  <ion-button  size="small" fill="outline" class="out_btn">
+                    <ion-icon slot="start" name="star-outline"></ion-icon>
+                    Follow
+                  </ion-button>
+                </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+        </div>
+
+      </div>
+    </span>
+
+    <span *ngIf="val == 5">
+
+      <div class="chips_div">
+        <div *ngFor="let item of city; let i = index" class="chip" [class.icn_chip]="i == 0" (click)="changeColor(i)"
+          [class.color_chip]="chipId == i">
+          <ion-icon [name]="item" *ngIf="i == 0"></ion-icon>
+          <ion-label *ngIf="i != 0">{{item}}</ion-label>
+        </div>
+      </div>
+
+      <div class="sunny_div">
+        <div>
+          <img src="assets/imgs/sun.png">
+        </div>
+        <div class="content_div">
+          <ion-label>32 &#8451; </ion-label>
+          <ion-label class="small_lbl">Sunny</ion-label>
+        </div>
+        <ion-label class="abs_lbl">32 &#8451; / 21 &#8451;</ion-label>
+      </div>
+
+      <div class="slider_div" style="padding-top: 16px; margin-bottom: 0px;">
+        <ion-label class="header_lbl">Fuel Price</ion-label>
+
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="4">
+              <div class="gray_border">
+                <div class="blue">
+                  <ion-label class="color_lbl">PETROL</ion-label>
+                  <ion-label> ₹ 69.59</ion-label>
+                </div>
+                <div class="price_div">0.00</div>
+              </div>
+            </ion-col>
+
+            <ion-col size="4">
+              <div class="gray_border">
+                <div class="orange">
+                  <ion-label class="color_lbl">DIESEL</ion-label>
+                  <ion-label> ₹ 69.59</ion-label>
+                </div>
+                <div class="price_div">0.00</div>
+              </div>
+            </ion-col>
+
+            <ion-col size="4">
+              <div class="gray_border">
+                <div class="green">
+                  <ion-label class="color_lbl">CNG</ion-label>
+                  <ion-label> ₹ 69.59</ion-label>
+                </div>
+                <div class="price_div">0.00</div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div style="height: 7px; background: #f3f3f3;"></div>
+
+    </span>
+
+    <span *ngIf="val == 5 || val == 6 || val == 3">
+      <div class="news_list_div">
+        <ion-label class="header_lbl">News</ion-label>
+        <div class="card_div" *ngFor="let item of (news| slice : 0: 3 )" (click)="goToSinglePost()">
+          <div class="flex_div">
+            <div style="display: flex;">
+              <img src="{{item.logo}}">
+              <ion-label>News India</ion-label>
+            </div>
+            <div>
+              <ion-button class="follow_btn"  fill="outline" size="small">
+                <ion-icon slot="start" name="add"></ion-icon>
+                Follow
+              </ion-button>
+            </div>
+          </div>
+
+          <div class="second_flex">
+            <div class="inner_flex">
+              <ion-label>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aperiam deserunt id...
+              </ion-label>
+              <div class="bottom_flex">
+                <ion-label>2m</ion-label>
+                <div>
+                  <ion-button  size="small" fill="clear">
+                    <ion-icon color="success" name="logo-whatsapp"></ion-icon>
+                  </ion-button>
+                  <ion-button  size="small" fill="clear">
+                    <ion-icon color="medium" name="ellipsis-vertical"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+            </div>
+            <div class="news_poster bg_image" [style.backgroundImage]="'url( '+ item.img +' )'"></div>
+          </div>
+        </div>
+      </div>
+    </span>
+
+    <div class="card_div">
+      <div class="flex_div">
+        <div style="display: flex;">
+          <img src="assets/imgs/news_icn1.png">
+          <ion-label>News India</ion-label>
+        </div>
+        <div>
+          <ion-button class="follow_btn"  fill="outline" size="small">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Follow
+          </ion-button>
+        </div>
+      </div>
+      <ion-label class="news_title">Lorem Ipsum is simply dummy text of the printing</ion-label>
+      <video width="100%" height="240" controls>
+        <source src="assets/imgs/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="flex_div">
+        <div>
+          <ion-label class="time">2m</ion-label>
+        </div>
+        <div>
+          <ion-button class="wp_btn"  fill="clear">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+          </ion-button>
+          <ion-button class="menu_btn"  fill="clear">
+            <ion-icon name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

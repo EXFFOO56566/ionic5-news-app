@@ -1,0 +1,41 @@
+.main_content_div{
+    width: 100%;
+    padding: 16px;
+
+    ion-searchbar{
+        padding: 0px;
+    }
+
+    .gray_div{
+        border: 1px solid lightgray;
+        margin-bottom: 10px;
+        border-radius: 10px;
+
+        .flex_list_div{
+            display: flex;
+            
+            padding: 10px;
+            align-items: center;
+            position: relative;
+            .state_name{
+                padding-left: 15px;
+            }
+            ion-button{
+                background: white;
+                position: absolute;
+                right: 0;
+                margin: auto;
+                color: gray;
+            }
+        }
+        .city{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+    }
+
+    
+}

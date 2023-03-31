@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Notifications</ion-title>
+    <ion-button slot="end" fill="clear" size="small">
+      <ion-icon name="ellipsis-vertical" color="medium"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="flex_list" *ngFor="let item of notification">
+      <div class="back_image bg_image" [style.backgroundImage]="'url( '+ item.img +' )'">
+
+      </div>
+      <div class="second_div">
+        <ion-label>
+          {{item.detail}}
+        </ion-label>
+        <ion-label class="time">1h</ion-label>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

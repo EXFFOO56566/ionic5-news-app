@@ -1,0 +1,30 @@
+<ion-header>
+  <div class="head_div">
+    <ion-label class="small_lbl">Choose Your Preffered</ion-label>
+    <ion-label class="head_lbl">Language</ion-label>
+  </div>
+</ion-header>
+<ion-content>
+  <div class="main_content_div">
+    <div class="lang_div">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6" *ngFor="let item of lang" (click)="close()">
+            <div [style.border]="getColor(item.color)" class="color_div">
+              <ion-label>{{item.name}}</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="footer_div">
+    <div>
+      <ion-checkbox mode="md"></ion-checkbox>
+    </div>
+    <ion-label>By continuig, you accept the <span>User Agreement & Privacy Policy</span> </ion-label>
+  </div>
+</ion-footer>

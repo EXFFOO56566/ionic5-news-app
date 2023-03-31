@@ -1,0 +1,28 @@
+<ion-header>
+  <div class="header_div" [class.top_margin]="plt == 'ios'">
+    <img src="assets/imgs/bear.png" (click)="goToRegister()">
+    <ion-input type="text" placeholder="Search News, Videos & Memes">
+      <ion-icon slot="start" name="search-outline"></ion-icon>
+    </ion-input>
+    <ion-icon name="notifications-outline" class="bell" (click)="goToNotification()"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    <ion-button (click)="goBack()" size="small" fill="clear">
+      <ion-icon slot="start" name="chevron-back"></ion-icon>
+      Back
+    </ion-button>
+
+    <div class="news_list">
+      <div class="flex_list" *ngFor="let item of papers ">
+        <div class="round_div">
+          <img src="{{item.img}}" alt="">
+        </div>
+        <ion-label>{{item.name}}</ion-label>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

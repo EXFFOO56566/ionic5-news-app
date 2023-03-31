@@ -1,0 +1,41 @@
+.main_content_div{
+    width: 100%;
+
+    ion-button{
+        color: gray;
+    }
+
+    .news_list{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .flex_list{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        .round_div{
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
+            border: 0.55px solid lightgray;
+            position: relative;
+            margin-right: 15px;
+
+            img{
+                position: absolute;
+                width: 30px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+            ion-label {
+                font-size: 15px;
+            }
+        }
+    }
+}

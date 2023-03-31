@@ -1,0 +1,156 @@
+.back_btn{
+    position: absolute;
+    top: 40px;
+}
+.back_image{
+    width: 100%;
+    height: 200px;
+
+    .div_overlay{
+        width: 100%;
+        height: 200px;
+        background: rgba(255,255,255,0.7);
+
+        .round_div{
+            height: 90px;
+            width: 90px;
+            border-radius: 100%;
+            border: 1px solid lightgray;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            .logo_image{
+                height: 100%;
+                width: 100%;
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+.flex_div_header{
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    ion-label {
+        display: block;
+    }
+    .head_lbl{
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .small_lbl{
+        color: gray;
+    }
+}
+
+.header_slider{
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    border-bottom: 0.55px solid lightgray;
+
+    .test{
+        height: 50px;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
+
+    .active{
+        border-bottom: 3px solid var(--ion-color-main2);
+        color: var(--ion-color-main2) !important;
+    }
+    .active2{
+        color: var(--ion-color-main2) !important;
+    }
+
+    .chips_div{
+        display: flex;
+        flex-direction: row;
+        overflow: scroll;
+        .chip{
+            
+            white-space: nowrap;
+            color: gray;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+
+    ion-icon{
+        font-size: 20px;
+        color: gray;
+        margin-left: 15px;
+    }
+}
+
+.main_content_div{
+    padding: 16px;
+   
+    ion-label {
+        display: block;
+    }
+
+    ion-checkbox{
+        --background-checked : var(--ion-color-success);
+        --border-color-checked : var(--ion-color-success);
+    }
+
+    .card_div{
+        border-bottom: 1px solid lightgray;
+        margin-bottom: 10px;
+        .flex_div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img{
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+           .follow_btn{
+                --border-color: lightgray;
+                color: #50afcd;
+                --border-radius: 5px;
+            }
+            .time{
+                color: gray;
+                font-size: 13px;
+            }
+
+            .wp_btn{
+                color: var(--ion-color-success);
+            }
+            .menu_btn{
+                color: gray;
+            }
+        }
+
+        .news_title{
+            font-weight: 600;
+            font-size: 20px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .back_image{
+            width: 100%;
+            height: 170px;
+            border-radius: 5px;
+        }
+        video{
+            height: 200px;
+        }
+    }
+}

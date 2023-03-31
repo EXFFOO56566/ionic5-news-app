@@ -1,0 +1,43 @@
+<ion-header>
+  <div class="header_div" [class.top_margin]="plt == 'ios'">
+    <img src="assets/imgs/bear.png" (click)="goToRegister()">
+    <ion-input type="text" placeholder="Search News, Videos & Memes">
+      <ion-icon slot="start" name="search-outline"></ion-icon>
+    </ion-input>
+    <ion-icon name="notifications-outline" class="bell" (click)="goToNotification()"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    
+    <div class="head_div">
+      <ion-label class="header_lbl">News Papers</ion-label>
+      <ion-label class="btn_lbl" (click)="goToPaperList()">See All</ion-label>
+    </div>
+
+    <ion-grid fixed>
+      <ion-label class="sub_header">National</ion-label>
+      <ion-row>
+        <ion-col size="4" *ngFor="let item of (papers | slice : 0: 6)" (click)="goToSinglePaper()">
+          <div class="col_div">
+            <img src="{{item.img}}" alt="">
+            <ion-label>{{item.name}}</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid fixed>
+      <ion-label class="sub_header">Regional</ion-label>
+      <ion-row>
+        <ion-col size="4" *ngFor="let item of (papers | slice : 0: 6)">
+          <div class="col_div">
+            <img src="{{item.img}}" alt="">
+            <ion-label>{{item.name}}</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

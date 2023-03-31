@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+
+    <ion-button (click)="goToSettings()" size="small" fill="clear" slot="end">
+      <ion-icon name="settings-outline" color="dark"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="goToNotification()" size="small" fill="clear" slot="end">
+      <ion-icon name="notifications-outline" color="dark"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+    
+    <div class="user_profile">
+      <div class="round_div">
+        <img src="assets/imgs/bear.png" alt="">
+      </div>
+      <div class="content_div">
+        <ion-label class="head_lbl">Add Your Name</ion-label>
+        <ion-label class="small_lbl">Add Your username</ion-label>
+
+        <ion-label class="small_lbl">5 Following • 0 Blocked</ion-label>
+      </div>
+    </div>
+    <div class="gray_div"></div>
+
+    <div class="chips_div">
+      <div class="test" [class.active]="val == i" *ngFor="let item of chips; let i = index">
+        <ion-label class="chip" [class.active2]="val == i" (click)="selectChip(i)">{{item}}</ion-label>
+      </div>
+    </div>
+
+    <div class="flex_div">
+      <ion-button (click)="presentActionSheet()" size="small" fill="outline">
+        <ion-icon slot="end" name="caret-down-outline"></ion-icon>
+        {{text}}
+      </ion-button>
+      <ion-button size="small" fill="outline" color="medium" style="margin-left: 10px;">
+        <ion-icon slot="end" name="trash"></ion-icon>
+        Clear
+      </ion-button>
+    </div>
+
+    <div class="bottom_content">
+      <div class="flex_list" *ngFor="let item of notification">
+        <div class="back_image bg_image" [style.backgroundImage]="'url( '+ item.img +' )'">
+  
+        </div>
+        <div class="second_div">
+          <ion-label>
+            {{item.detail}}
+          </ion-label>
+
+          <div class="bottom_div">
+            <ion-label class="time">1h</ion-label>
+
+            <div class="inner_div">
+              <img src="{{item.logo}}">
+              <ion-label>India News</ion-label>
+            </div>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</ion-content>

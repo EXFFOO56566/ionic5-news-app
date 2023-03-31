@@ -1,0 +1,35 @@
+.main_content_div{
+    width: 100%;
+    padding: 16px;
+    padding-top: 0px;
+
+    ion-label {
+        display: block;
+    }
+
+    .flex_list{
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid lightgray;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        align-items: center;
+
+
+        .back_image{
+            height: 60px;
+            width: 60px;
+            min-width: 60px;
+            border-radius: 5px;
+        }
+        .second_div{
+            padding-left: 15px;
+
+            .time{
+                color: gray;
+                font-size: 15px;
+                margin-top: 5px;
+            }
+        }
+    }
+}

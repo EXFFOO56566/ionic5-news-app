@@ -1,0 +1,53 @@
+<ion-header>
+  <div class="header_div" [class.top_margin]="plt == 'ios'">
+    <img src="assets/imgs/bear.png" (click)="goToRegister()">
+    <ion-input type="text" placeholder="Search News, Videos & Memes">
+      <ion-icon slot="start" name="search-outline"></ion-icon>
+    </ion-input>
+    <ion-icon name="notifications-outline" class="bell" (click)="goToNotification()"></ion-icon>
+  </div>
+
+  <div class="header_slider">
+    <div>
+      <ion-icon name="apps"></ion-icon>
+    </div>
+    <div class="chips_div">
+      <div class="test" [class.active]="val == i" *ngFor="let item of chips; let i = index">
+        <ion-label class="chip"  [class.active2]="val == i" (click)="selectChip(i)">{{item}}</ion-label>
+      </div>
+    </div>
+    <div>
+      <ion-icon name="add-circle"></ion-icon>
+    </div>
+    
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="card_div" *ngFor="let item of news">
+      <ion-label class="news_title">Lorem Ipsum is simply dummy text of the printing</ion-label>
+      <div class="back_image bg_image" [style.backgroundImage]="'url( '+ item.img +' )'" (click)="goToSingleVideo()">
+        <div class="red_div">
+          <ion-icon name="play"></ion-icon>
+        </div>
+        <div class="time_div">01:20</div>
+      </div>
+      <div class="flex_div">
+        <div>
+          <ion-label class="channel">News India</ion-label>
+          <ion-label class="time">216 Views • 4 shares</ion-label>
+        </div>
+        <div>
+          <ion-button class="wp_btn"  fill="clear">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+          </ion-button>
+          <ion-button class="menu_btn"  fill="clear">
+            <ion-icon name="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

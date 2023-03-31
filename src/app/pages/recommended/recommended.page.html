@@ -1,0 +1,114 @@
+<ion-header>
+  <div class="header_div" [class.top_margin]="plt == 'ios'">
+    <img src="assets/imgs/bear.png" (click)="goToRegister()">
+    <ion-input type="text" placeholder="Search News, Videos & Memes">
+      <ion-icon slot="start" name="search-outline"></ion-icon>
+    </ion-input>
+    <ion-icon name="notifications-outline" class="bell" (click)="goToNotification()"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="main_content_div">
+
+    <div class="main_div">
+      <div class="head_div">
+        <ion-label class="header_lbl">Followed Sources</ion-label>
+        <ion-label class="btn_lbl" (click)="goToRecoList('Following')">See All</ion-label>
+      </div>
+
+      <div class="slider_div">
+        <ion-slides [options]="slideOpts">
+          <ion-slide *ngFor="let item of papers" (click)="goToSinglePaper()">
+            <div class="slide_div">
+              <div class="round_div">
+                  <img src="{{item.img}}">
+              </div>
+              <ion-label>{{item.name}}</ion-label>
+              <ion-button  size="small" class="fill_btn">
+                Following
+              </ion-button>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+
+    <div class="main_div">
+      <div class="head_div">
+        <ion-label class="header_lbl">Recommended Location</ion-label>
+        <ion-label class="btn_lbl" (click)="goToLocation()">See All</ion-label>
+      </div>
+
+      <div class="slider_div">
+        <ion-slides [options]="slideOpts">
+          <ion-slide *ngFor="let item of places">
+            <div class="slide_div" style="padding: 0px;">
+              <div class="place_div bg_image" [style.backgroundImage]="'url( '+ item.img+' )'">
+                <div class="overlay_div"></div>
+                <ion-label class="abs_lbl">{{item.name}}</ion-label>
+              </div>
+              <div>
+                <ion-button  size="small" fill="outline" class="out_btn">
+                  <ion-icon slot="start" name="star-outline"></ion-icon>
+                  Follow
+                </ion-button>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+
+    <div class="main_div">
+      <div class="head_div">
+        <ion-label class="header_lbl">Recommended Channels</ion-label>
+        <ion-label class="btn_lbl" (click)="goToRecoList('Channels')">See All</ion-label>
+      </div>
+
+      <div class="slider_div">
+        <ion-slides [options]="slideOpts">
+          <ion-slide *ngFor="let item of places" (click)="goToSinglePaper()">
+            <div class="slide_div">
+                <div class="place_div2 bg_image" [style.backgroundImage]="'url( '+ item.img+' )'"></div>
+              <ion-label>{{item.name}}</ion-label>
+              <ion-button  size="small" class="fill_btn">
+                Following
+              </ion-button>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+
+    <div class="main_div">
+      <div class="head_div">
+        <ion-label class="header_lbl">Trending in News</ion-label>
+        <ion-label class="sub_header">Trending in news</ion-label>
+        <ion-label class="btn_lbl" (click)="goToRecoList('Trending in News')">See All</ion-label>
+      </div>
+     
+
+      <div class="slider_div">
+        <ion-slides [options]="slideOpts2">
+          <ion-slide *ngFor="let item of places">
+            <div class="slide_div" style="padding: 0px;">
+              <div class="place_div bg_image" [style.backgroundImage]="'url( '+ item.img+' )'"></div>
+              <div class="bottom_flex">
+                <ion-label> Lorem ipsum dolor...</ion-label>
+                <ion-button  size="small" fill="outline" class="out_btn">
+                  <ion-icon slot="start" name="star-outline"></ion-icon>
+                  Follow
+                </ion-button>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+    
+    
+
+    
+  </div>
+</ion-content>
